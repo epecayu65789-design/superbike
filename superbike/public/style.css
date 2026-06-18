@@ -12,11 +12,11 @@ body {
     background-color: #0b0f19; /* Deep cosmic dark background */
     color: #f3f4f6;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 2rem 1.5rem; /* Balanced base padding for all devices */
 }
 
 .container {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid #1f293d;
     margin-bottom: 2rem;
 }
@@ -39,15 +39,14 @@ body {
 }
 
 .brand-icon {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -55,46 +54,40 @@ body {
 .badge-pill {
     background-color: #1e1b4b;
     color: #818cf8;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 9999px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     border: 1px solid #312e81;
 }
 
 /* ==========================================================================
-   3. WORKSPACE DASHBOARD GRID
+   3. BASE LAYOUT GRID (Default: Desktop/Large Screens)
    ========================================================================== */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Controls Left vs Right width ratio */
-    gap: 2rem;
+    grid-template-columns: 1fr 1.4fr; /* Two side-by-side columns */
+    gap: 1.75rem;
 }
 
-@media (max-width: 900px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr; /* Stacks vertically on mobile screens */
-    }
-}
-
-/* Base Card Panel Component */
+/* Base Panel Styles */
 .control-panel, .results-panel {
-    background-color: #111827; /* Rich secondary dark slate */
+    background-color: #111827; 
     border: 1px solid #1f293d;
     border-radius: 16px;
     padding: 2rem;
 }
 
 h2 {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .panel-subtitle {
     color: #9ca3af;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.75rem;
 }
 
 /* ==========================================================================
@@ -104,11 +97,11 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .input-group label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: #9ca3af;
     text-transform: uppercase;
@@ -124,9 +117,9 @@ h2 {
     font-size: 0.95rem;
     outline: none;
     transition: all 0.2s ease;
+    width: 100%;
 }
 
-/* Glow highlight when user interacts with inputs */
 .input-group input:focus, .input-group select:focus {
     border-color: #6366f1;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
@@ -136,13 +129,13 @@ h2 {
     background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
     color: #ffffff;
     border: none;
-    padding: 1rem;
+    padding: 0.9rem;
     border-radius: 8px;
     font-weight: 600;
     width: 100%;
     cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-    margin-top: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 0.75rem;
 }
 
 .calc-btn:hover {
@@ -151,7 +144,7 @@ h2 {
 }
 
 /* ==========================================================================
-   5. RESULTS DISPLAYS & MATRIX
+   5. RESULTS DISPLAY & MATRIX
    ========================================================================== */
 .panel-state {
     display: flex;
@@ -159,37 +152,36 @@ h2 {
     height: 100%;
 }
 
-/* Empty Placeholder Styling */
 #placeholderState {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     color: #6b7280;
 }
 
 .placeholder-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-/* Metric Display Output Cards Layout */
+/* Output Metric Layout (Default: Desktop) */
 .metrics-matrix {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Forms 3 neat columns */
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .metric-card {
     background-color: #1f2937;
     border: 1px solid #374151;
-    padding: 1.25rem;
+    padding: 1.25rem 1rem;
     border-radius: 12px;
 }
 
 .card-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: #9ca3af;
     letter-spacing: 0.05em;
@@ -198,14 +190,13 @@ h2 {
 }
 
 .card-value {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
 }
 
-/* Highlighting the primary Monthly EMI container with a green neon ring */
 .glow-green {
     border-color: #10b981;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.12);
 }
 .glow-green .card-value {
     color: #10b981;
@@ -219,8 +210,8 @@ h2 {
 }
 
 .schedule-wrapper h3 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
     color: #e5e7eb;
 }
 
@@ -235,7 +226,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
 }
 
 th, td {
@@ -248,16 +239,62 @@ th {
     color: #9ca3af;
     font-weight: 600;
     position: sticky;
-    top: 0; /* Keeps headers frozen while scrolling table rows */
+    top: 0;
 }
 
 tr:hover td {
     background-color: #1e293b;
 }
 
-/* ==========================================================================
-   7. INTERACTIVE UTILITIES
-   ========================================================================== */
 .hidden {
     display: none !important;
+}
+
+/* ==========================================================================
+   7. 📱 DYNAMIC MEDIA QUERIES (The Device Adaptation Logic)
+   ========================================================================== */
+
+/* BREAKPOINT 1: For tablets and medium displays (Screen size <= 960px) */
+@media (max-width: 960px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Drop the side-by-side grid, stack panels vertically */
+        gap: 1.5rem;
+    }
+
+    .control-panel, .results-panel {
+        padding: 1.5rem; /* Shave down excess panel padding to save screen space */
+    }
+}
+
+/* BREAKPOINT 2: For mobile phones (Screen size <= 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.75rem; /* Minimize page borders so layout utilizes maximum edge space */
+    }
+
+    .app-header {
+        flex-direction: column; /* Stacks brand icon/title above the version badge */
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* Stack output summaries into 1 single vertical column instead of squishing them across */
+    .metrics-matrix {
+        grid-template-columns: 1fr; 
+        gap: 0.75rem;
+    }
+
+    .metric-card {
+        padding: 1rem;
+    }
+
+    .card-value {
+        font-size: 1.25rem;
+    }
+
+    /* Shrink table padding slightly to prevent horizontal scrolling on small phone viewports */
+    th, td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.75rem;
+    }
 }
