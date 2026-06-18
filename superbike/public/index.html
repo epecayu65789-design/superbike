@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoAnalytics // Premium EMI Dashboard</title>
+    <!-- Sleek modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Dashboard Header -->
+        <header class="app-header">
+            <div class="brand">
+                <span class="brand-icon">🏍️</span>
+                <h1>Moto Analytics</h1>
+            </div>
+            <span class="badge-pill">V2.0 Financial Engine</span>
+        </header>
+
+        <!-- Main Workspace Grid -->
+        <main class="dashboard-grid">
+            
+            <!-- LEFT PANEL: The Input Controls -->
+            <section class="control-panel">
+                <h2>Configure Loan Matrix</h2>
+                <p class="panel-subtitle">Select your high-performance machine and adjust variables.</p>
+                
+                <form id="calculatorForm">
+                    <!-- Dropdown for Bikes -->
+                    <div class="input-group">
+                        <label for="bikeSelect">Select Performance Bike</label>
+                        <select id="bikeSelect" required>
+                            <option value="" disabled selected>Choose a machine...</option>
+                            <option value="1207000">Triumph Street Triple RS — ₹12,07,000</option>
+                            <option value="935000">Honda CBR 650R — ₹9,35,000</option>
+                        </select>
+                    </div>
+
+                    <!-- Input Box for Down Payment -->
+                    <div class="input-group">
+                        <label for="downPaymentInput">Down Payment (₹)</label>
+                        <input type="number" id="downPaymentInput" placeholder="e.g. 250000" min="0" required>
+                    </div>
+
+                    <!-- Input Box for Interest Rate -->
+                    <div class="input-group">
+                        <label for="interestRateInput">Annual Interest Rate (%)</label>
+                        <input type="number" id="interestRateInput" placeholder="e.g. 9.5" step="0.1" min="1" max="25" required>
+                    </div>
+
+                    <!-- Dropdown for Tenure Months -->
+                    <div class="input-group">
+                        <label for="tenureSelect">Loan Tenure</label>
+                        <select id="tenureSelect" required>
+                            <option value="12">12 Months (1 Year)</option>
+                            <option value="24">24 Months (2 Years)</option>
+                            <option value="36" selected>36 Months (3 Years)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="calc-btn">Compute Financials</button>
+                </form>
+            </section>
+
+            <!-- RIGHT PANEL: Dynamic Metric Display -->
+            <section class="results-panel">
+                <!-- State A: Waiting Placeholder -->
+                <div id="placeholderState" class="panel-state">
+                    <div class="placeholder-icon">📊</div>
+                    <h3>Awaiting Configuration Input</h3>
+                    <p>Fill out the parameters on the left to fire up the dynamic compounding calculation matrix.</p>
+                </div>
+
+                <!-- State B: Active Calculations (Hidden by default) -->
+                <div id="resultsState" class="panel-state hidden">
+                    <h2>Financial Summary</h2>
+                    
+                    <div class="metrics-matrix">
+                        <div class="metric-card glow-green">
+                            <span class="card-label">MONTHLY EMI</span>
+                            <div id="emiOutput" class="card-value">₹0</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label">TOTAL INTEREST DUE</span>
+                            <div id="interestOutput" class="card-value">₹0</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label">TOTAL REPAYMENT</span>
+                            <div id="repaymentOutput" class="card-value">₹0</div>
+                        </div>
+                    </div>
+
+                    <!-- Amortization Breakdowns will be injected here via JavaScript -->
+                    <div class="schedule-wrapper">
+                        <h3>Repayment Lifecycle Overview</h3>
+                        <div class="table-scroll">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Principal Paid</th>
+                                        <th>Interest Paid</th>
+                                        <th>Remaining Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="scheduleTableBody">
+                                    <!-- Dynamic rows from backend go here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Wire up the script ECU -->
+    <script src="script.js"></script>
+</body>
+</html>
